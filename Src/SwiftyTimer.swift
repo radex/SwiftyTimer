@@ -76,15 +76,6 @@ extension NSTimer {
     }
 }
 
-extension Int {
-    public var second:  NSTimeInterval { return NSTimeInterval(self) }
-    public var seconds: NSTimeInterval { return NSTimeInterval(self) }
-    public var minute:  NSTimeInterval { return NSTimeInterval(self * 60) }
-    public var minutes: NSTimeInterval { return NSTimeInterval(self * 60) }
-    public var hour:    NSTimeInterval { return NSTimeInterval(self * 3600) }
-    public var hours:   NSTimeInterval { return NSTimeInterval(self * 3600) }
-}
-
 extension Double {
     public var second:  NSTimeInterval { return self }
     public var seconds: NSTimeInterval { return self }

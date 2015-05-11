@@ -44,7 +44,7 @@ extension NSTimer {
     /// **Note:** the timer won't fire until it's scheduled on the run loop.
     /// Use `NSTimer.after` to create and schedule a timer in one step.
     
-    class func new(after interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
+    public class func new(after interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
         let actor = NSTimerActor(block)
         return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: false)
     }
@@ -54,14 +54,14 @@ extension NSTimer {
     /// **Note:** the timer won't fire until it's scheduled on the run loop.
     /// Use `NSTimer.every` to create and schedule a timer in one step.
     
-    class func new(every interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
+    public class func new(every interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
         let actor = NSTimerActor(block)
         return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: true)
     }
     
     /// Create and schedule a timer that will call `block` once after the specified time.
     
-    class func after(interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
+    public class func after(interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
         let timer = NSTimer.new(after: interval, block)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
         return timer
@@ -69,7 +69,7 @@ extension NSTimer {
     
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     
-    class func every(interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
+    public class func every(interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
         let timer = NSTimer.new(every: interval, block)
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
         return timer
@@ -77,19 +77,19 @@ extension NSTimer {
 }
 
 extension Int {
-    var second:  NSTimeInterval { return NSTimeInterval(self) }
-    var seconds: NSTimeInterval { return NSTimeInterval(self) }
-    var minute:  NSTimeInterval { return NSTimeInterval(self * 60) }
-    var minutes: NSTimeInterval { return NSTimeInterval(self * 60) }
-    var hour:    NSTimeInterval { return NSTimeInterval(self * 3600) }
-    var hours:   NSTimeInterval { return NSTimeInterval(self * 3600) }
+    public var second:  NSTimeInterval { return NSTimeInterval(self) }
+    public var seconds: NSTimeInterval { return NSTimeInterval(self) }
+    public var minute:  NSTimeInterval { return NSTimeInterval(self * 60) }
+    public var minutes: NSTimeInterval { return NSTimeInterval(self * 60) }
+    public var hour:    NSTimeInterval { return NSTimeInterval(self * 3600) }
+    public var hours:   NSTimeInterval { return NSTimeInterval(self * 3600) }
 }
 
 extension Double {
-    var second:  NSTimeInterval { return self }
-    var seconds: NSTimeInterval { return self }
-    var minute:  NSTimeInterval { return self * 60 }
-    var minutes: NSTimeInterval { return self * 60 }
-    var hour:    NSTimeInterval { return self * 3600 }
-    var hours:   NSTimeInterval { return self * 3600 }
+    public var second:  NSTimeInterval { return self }
+    public var seconds: NSTimeInterval { return self }
+    public var minute:  NSTimeInterval { return self * 60 }
+    public var minutes: NSTimeInterval { return self * 60 }
+    public var hour:    NSTimeInterval { return self * 3600 }
+    public var hours:   NSTimeInterval { return self * 3600 }
 }

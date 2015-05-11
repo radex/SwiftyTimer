@@ -63,7 +63,7 @@ extension NSTimer {
     
     public class func after(interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
         let timer = NSTimer.new(after: interval, block)
-        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+        timer.start()
         return timer
     }
     
@@ -71,8 +71,20 @@ extension NSTimer {
     
     public class func every(interval: NSTimeInterval, _ block: () -> ()) -> NSTimer {
         let timer = NSTimer.new(every: interval, block)
-        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+        timer.start()
         return timer
+    }
+    
+    /// Schedule this timer on the specified run loop (defaults to the current run loop)
+    
+    public func start(onRunLoop runLoop: NSRunLoop = NSRunLoop.currentRunLoop(), forMode mode: String = NSDefaultRunLoopMode) {
+        runLoop.addTimer(self, forMode: mode)
+    }
+    
+    /// Invalidate this timer (provided to match `start`)
+    
+    public func stop() {
+        self.invalidate()
     }
 }
 

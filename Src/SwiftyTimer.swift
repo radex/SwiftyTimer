@@ -78,16 +78,12 @@ extension NSTimer {
     /// Schedule this timer on the run loop
     ///
     /// By default, the timer is scheduled on the current run loop for the default mode.
-    /// Specify `runLoop` or `mode` to override these defaults.
+    /// Specify `runLoop` or `modes` to override these defaults.
     
-    public func start(runLoop: NSRunLoop = NSRunLoop.currentRunLoop(), mode: String = NSDefaultRunLoopMode) {
-        runLoop.addTimer(self, forMode: mode)
-    }
-    
-    /// Invalidate this timer (alias to `invalidate`)
-    
-    public func stop() {
-        invalidate()
+    public func start(runLoop: NSRunLoop = NSRunLoop.currentRunLoop(), modes: [String] = [NSDefaultRunLoopMode]) {
+        for mode in modes {
+            runLoop.addTimer(self, forMode: mode)
+        }
     }
 }
 

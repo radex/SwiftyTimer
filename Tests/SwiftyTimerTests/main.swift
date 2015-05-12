@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var fired = false
         timer4 = NSTimer.new(every: 0.1.seconds) {
             if fired {
-                self.timer4.stop()
+                self.timer4.invalidate()
                 self.test6()
             } else {
                 fired = true

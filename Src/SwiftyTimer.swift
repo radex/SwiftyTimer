@@ -31,7 +31,7 @@ private class NSTimerActor {
         self.block = block
     }
     
-    dynamic func fire() {
+    @objc func fire() {
         block()
     }
 }

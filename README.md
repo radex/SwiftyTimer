@@ -4,7 +4,7 @@ SwiftyTimer is a set of extensions to make the `NSTimer` API cleaner, nicer to u
 
 Read [Swifty APIs: NSTimer](http://radex.io/swift/nstimer/) for more information about this project.
 
-### Scheduling a timer
+### Usage
 
 You can easily schedule repeating and non-repeating timers (repeats and delays) using `NSTimer.every` and `NSTimer.after`:
 
@@ -45,6 +45,13 @@ let timer = NSTimer.new(every: 1.second) {
 ```
 
 (This should be defined as an initializer, but [a bug in Swift](http://www.openradar.me/18720947) prevents this)
+
+Call `start()` to schedule timers created using `new`. You can optionally pass the run loop and run loop modes:
+
+```swift
+timer.start()
+timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
+```
 
 ### Installation
 

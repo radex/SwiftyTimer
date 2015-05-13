@@ -50,7 +50,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
     
+    var timer4: NSTimer!
+    
     func test5() {
+        var fired = false
+        timer4 = NSTimer.new(every: 0.1.seconds) {
+            if fired {
+                self.timer4.invalidate()
+                self.test6()
+            } else {
+                fired = true
+            }
+        }
+        timer4.start()
+    }
+    
+    func test6() {
+        let timer = NSTimer.new(after: 0.1.seconds) {
+            self.test7()
+        }
+        
+        timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode, runLoop: NSRunLoop.currentRunLoop())
+    }
+
+    func test7() {
         NSTimer.after(0.1.seconds, done)
     }
     

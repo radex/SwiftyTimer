@@ -4,7 +4,7 @@ SwiftyTimer is a set of extensions to make the `NSTimer` API cleaner, nicer to u
 
 Read [Swifty APIs: NSTimer](http://radex.io/swift/nstimer/) for more information about this project.
 
-### Usage
+## Usage
 
 You can easily schedule repeating and non-repeating timers (repeats and delays) using `NSTimer.every` and `NSTimer.after`:
 
@@ -53,7 +53,7 @@ timer.start()
 timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
 ```
 
-### Installation
+## Installation
 
 The simplest way to install this library is to copy `Src/SwiftyTimer.swift` to your project. There's no step two!
 
@@ -72,6 +72,15 @@ import SwiftyTimer
 ```
 
 Note that this requires CocoaPods 0.36+, as well as iOS 8 or OS X 10.9+
+
+## More like this
+
+If you like SwiftyTimer, check out [SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults), which applies the same swifty approach to `NSUserDefaults`.
+
+You might also be interested in my blog posts which explain the design process behind those libraries:
+- [Swifty APIs: NSTimer](http://radex.io/swift/nstimer/)
+- [Swifty APIs: NSUserDefaults](http://radex.io/swift/nsuserdefaults/)
+- [Swifty methods](http://radex.io/swift/methods/)
 
 ### Contributing
 

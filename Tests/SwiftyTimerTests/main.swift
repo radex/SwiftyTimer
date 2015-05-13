@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 fired = true
             }
         }
-        timer4.start()
+        timer4.start(runLoop: NSRunLoop.currentRunLoop(), modes: NSDefaultRunLoopMode)
     }
 
     func test6() {

@@ -25,7 +25,7 @@
 import Foundation
 
 private class NSTimerActor {
-    var block: () -> Void
+    let block: () -> Void
     
     init(_ block: () -> Void) {
         self.block = block
@@ -81,7 +81,7 @@ extension NSTimer {
     /// Specify `runLoop` or `modes` to override these defaults.
     
     public func start(runLoop: NSRunLoop = NSRunLoop.currentRunLoop(), modes: String...) {
-        let modes = modes.count != 0 ? modes : [NSDefaultRunLoopMode]
+        let modes = modes.isEmpty ? [NSDefaultRunLoopMode] : modes
         
         for mode in modes {
             runLoop.addTimer(self, forMode: mode)

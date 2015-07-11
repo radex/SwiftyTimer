@@ -25,7 +25,7 @@
 import Foundation
 
 private class NSTimerActor {
-    var block: () -> Void
+    let block: () -> Void
     
     init(_ block: () -> Void) {
         self.block = block

@@ -44,7 +44,7 @@ extension NSTimer {
     /// **Note:** the timer won't fire until it's scheduled on the run loop.
     /// Use `NSTimer.after` to create and schedule a timer in one step.
     
-    public class func new(after interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func new(after interval: NSTimeInterval, block: () -> Void) -> NSTimer {
         let actor = NSTimerActor(block)
         return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: false)
     }
@@ -61,15 +61,15 @@ extension NSTimer {
     
     /// Create and schedule a timer that will call `block` once after the specified time.
     
-    public class func after(interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        let timer = NSTimer.new(after: interval, block)
+    public class func after(interval: NSTimeInterval, block: () -> Void) -> NSTimer {
+        let timer = NSTimer.new(after: interval, block: block)
         timer.start()
         return timer
     }
     
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     
-    public class func every(interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func every(interval: NSTimeInterval, block: () -> Void) -> NSTimer {
         let timer = NSTimer.new(every: interval, block)
         timer.start()
         return timer

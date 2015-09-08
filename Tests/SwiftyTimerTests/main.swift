@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func test7() {
-        NSTimer.after(0.1.seconds, done)
+        NSTimer.after(0.1.seconds, block: done)
     }
     
     func done() {

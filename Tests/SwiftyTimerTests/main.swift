@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func test2() {
         var fired = false
-        NSTimer.after(0.1.seconds) {
+        NSTimer.after(0.1.seconds) { timer in
             assert(!fired)
             fired = true
             self.test3()
@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func test3() {
         var fired = false
-        timer1 = NSTimer.every(0.1.seconds) {
+        timer1 = NSTimer.every(0.1.seconds) { timer in
             if fired {
                 self.test4()
                 self.timer1.invalidate()
@@ -40,11 +40,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    let timer2 = NSTimer.new(after: 0.1.seconds) { fatalError() }
-    let timer3 = NSTimer.new(every: 0.1.seconds) { fatalError() }
+    let timer2 = NSTimer.new(after: 0.1.seconds) { timer in
+        fatalError()
+    }
+    let timer3 = NSTimer.new(every: 0.1.seconds) { timer in
+        fatalError()
+    }
     
     func test4() {
-        let timer = NSTimer.new(after: 0.1.seconds) {
+        let timer = NSTimer.new(after: 0.1.seconds) { timer in
             self.test5()
         }
         NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
@@ -54,7 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func test5() {
         var fired = false
-        timer4 = NSTimer.new(every: 0.1.seconds) {
+        timer4 = NSTimer.new(every: 0.1.seconds) { timer in
             if fired {
                 self.timer4.invalidate()
                 self.test6()
@@ -66,21 +70,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func test6() {
-        let timer = NSTimer.new(after: 0.1.seconds) {
+        let timer = NSTimer.new(after: 0.1.seconds) { timer in
             self.test7()
         }
         
-        timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode, runLoop: NSRunLoop.currentRunLoop())
+        timer.start(NSRunLoop.currentRunLoop(), modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
+    }
+    
+    func test7() {
+        NSTimer.after(0.1.seconds) { timer in
+            timer.invalidate()
+            self.test8()
+        }
     }
 
-    func test7() {
+    func test8() {
         NSTimer.after(0.1.seconds, done)
     }
     
-    func done() {
-        println("All tests passed")
+    func done(timer: NSTimer) {
+        print("All tests passed")
         app.terminate(self)
     }
+    
 }
 
 let delegate = AppDelegate()

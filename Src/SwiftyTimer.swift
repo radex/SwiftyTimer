@@ -25,14 +25,14 @@
 import Foundation
 
 private class NSTimerActor {
-    var block: () -> Void
+    var block: (timer: NSTimer) -> Void
     
-    init(_ block: () -> Void) {
+    init(_ block: (timer: NSTimer) -> Void) {
         self.block = block
     }
     
-    @objc func fire() {
-        block()
+    @objc func fire(timer: NSTimer) {
+        block(timer: timer)
     }
 }
 
@@ -44,9 +44,9 @@ extension NSTimer {
     /// **Note:** the timer won't fire until it's scheduled on the run loop.
     /// Use `NSTimer.after` to create and schedule a timer in one step.
     
-    public class func new(after interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func new(after interval: NSTimeInterval, _ block: (timer: NSTimer) -> Void) -> NSTimer {
         let actor = NSTimerActor(block)
-        return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: false)
+        return self.init(timeInterval: interval, target: actor, selector: "fire:", userInfo: nil, repeats: false)
     }
     
     /// Create a timer that will call `block` repeatedly in specified time intervals.
@@ -54,14 +54,14 @@ extension NSTimer {
     /// **Note:** the timer won't fire until it's scheduled on the run loop.
     /// Use `NSTimer.every` to create and schedule a timer in one step.
     
-    public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func new(every interval: NSTimeInterval, _ block: (timer: NSTimer) -> Void) -> NSTimer {
         let actor = NSTimerActor(block)
-        return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: true)
+        return self.init(timeInterval: interval, target: actor, selector: "fire:", userInfo: nil, repeats: true)
     }
     
     /// Create and schedule a timer that will call `block` once after the specified time.
     
-    public class func after(interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func after(interval: NSTimeInterval, _ block: (timer: NSTimer) -> Void) -> NSTimer {
         let timer = NSTimer.new(after: interval, block)
         timer.start()
         return timer
@@ -69,7 +69,7 @@ extension NSTimer {
     
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     
-    public class func every(interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
+    public class func every(interval: NSTimeInterval, _ block: (timer: NSTimer) -> Void) -> NSTimer {
         let timer = NSTimer.new(every: interval, block)
         timer.start()
         return timer

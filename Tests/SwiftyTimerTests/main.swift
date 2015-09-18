@@ -70,7 +70,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.test7()
         }
         
-        timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode, runLoop: NSRunLoop.currentRunLoop())
+        timer.start(runLoop: NSRunLoop.currentRunLoop(), modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
     }
 
     func test7() {
@@ -78,7 +78,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func done() {
-        println("All tests passed")
+        print("All tests passed")
         app.terminate(self)
     }
 }

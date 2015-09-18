@@ -71,7 +71,7 @@ Then import library module like so:
 import SwiftyTimer
 ```
 
-Note that this requires CocoaPods 0.36+, as well as iOS 8 or OS X 10.9+
+Note that this requires iOS 8 or OS X 10.9+
 
 ## More like this
 
@@ -80,6 +80,7 @@ If you like SwiftyTimer, check out [SwiftyUserDefaults](https://github.com/radex
 You might also be interested in my blog posts which explain the design process behind those libraries:
 - [Swifty APIs: NSTimer](http://radex.io/swift/nstimer/)
 - [Swifty APIs: NSUserDefaults](http://radex.io/swift/nsuserdefaults/)
+- [Statically-typed NSUserDefaults](http://radex.io/swift/nsuserdefaults/static)
 - [Swifty methods](http://radex.io/swift/methods/)
 
 ### Contributing

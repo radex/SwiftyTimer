@@ -90,6 +90,7 @@ extension NSTimer {
 }
 
 extension Double {
+    public var ms:      NSTimeInterval { return self / 1000 }
     public var second:  NSTimeInterval { return self }
     public var seconds: NSTimeInterval { return self }
     public var minute:  NSTimeInterval { return self * 60 }

@@ -14,6 +14,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         assert(1.2.seconds == 1.2)
         assert(1.5.minutes == 90.0)
         assert(1.5.hours == 5400.0)
+        assert(1.3.milliseconds == 0.0013)
+        assert(0.5.day == 43_200 )
+        assert(1.day == 86_400 )
+        assert(2.days == 172_800)
         test2()
     }
     

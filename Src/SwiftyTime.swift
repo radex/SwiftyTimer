@@ -24,7 +24,7 @@
 
 import Foundation
 
-private let miliDivider: Double     = 1000
+private let milliDivider: Double    = 1000
 private let secondsInMinute: Double = 60
 private let minutesInHour: Double   = 60
 private let hoursInDay: Double      = 24
@@ -36,19 +36,19 @@ extension Double {
         return value
     }
     
-    public var milisecond:  NSTimeInterval { return assertOneOrLess(miliseconds) }
-    public var miliseconds: NSTimeInterval { return self / miliDivider }
-    public var ms:          NSTimeInterval { return miliseconds }
+    public var millisecond:  NSTimeInterval { return assertOneOrLess(milliseconds) }
+    public var milliseconds: NSTimeInterval { return self / milliDivider }
+    public var ms:           NSTimeInterval { return milliseconds }
     
-    public var second:      NSTimeInterval { return assertOneOrLess(seconds) }
-    public var seconds:     NSTimeInterval { return self }
+    public var second:       NSTimeInterval { return assertOneOrLess(seconds) }
+    public var seconds:      NSTimeInterval { return self }
     
-    public var minute:      NSTimeInterval { return assertOneOrLess(minutes) }
-    public var minutes:     NSTimeInterval { return self * secondsInMinute }
+    public var minute:       NSTimeInterval { return assertOneOrLess(minutes) }
+    public var minutes:      NSTimeInterval { return self * secondsInMinute }
     
-    public var hour:        NSTimeInterval { return assertOneOrLess(hours)}
-    public var hours:       NSTimeInterval { return minutes * minutesInHour }
+    public var hour:         NSTimeInterval { return assertOneOrLess(hours)}
+    public var hours:        NSTimeInterval { return minutes * minutesInHour }
     
-    public var day:         NSTimeInterval { return assertOneOrLess(days) }
-    public var days:        NSTimeInterval { return hours * hoursInDay }
+    public var day:          NSTimeInterval { return assertOneOrLess(days) }
+    public var days:         NSTimeInterval { return hours * hoursInDay }
 }

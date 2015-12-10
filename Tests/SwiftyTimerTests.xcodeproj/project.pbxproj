@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1AF1E4861BFE6E40004F5DEC /* SwiftyTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF1E4851BFE6E40004F5DEC /* SwiftyTime.swift */; };
+		1A4561A11C19D12600313D20 /* SwiftyTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4561A01C19D12600313D20 /* SwiftyTime.swift */; };
 		6EE9C1591B00BB5B00D6B91C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C1581B00BB5B00D6B91C /* main.swift */; };
 		6EE9C1741B00BBB700D6B91C /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C1731B00BBB700D6B91C /* SwiftyTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1AF1E4851BFE6E40004F5DEC /* SwiftyTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTime.swift; sourceTree = "<group>"; };
+		1A4561A01C19D12600313D20 /* SwiftyTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTime.swift; path = ../../Src/SwiftyTime.swift; sourceTree = "<group>"; };
 		6EE9C1531B00BB5B00D6B91C /* SwiftyTimerTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyTimerTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE9C1571B00BB5B00D6B91C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE9C1581B00BB5B00D6B91C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -50,8 +50,8 @@
 		6EE9C1551B00BB5B00D6B91C /* SwiftyTimerTests */ = {
 			isa = PBXGroup;
 			children = (
+				1A4561A01C19D12600313D20 /* SwiftyTime.swift */,
 				6EE9C1731B00BBB700D6B91C /* SwiftyTimer.swift */,
-				1AF1E4851BFE6E40004F5DEC /* SwiftyTime.swift */,
 				6EE9C1581B00BB5B00D6B91C /* main.swift */,
 				6EE9C1561B00BB5B00D6B91C /* Supporting Files */,
 			);
@@ -133,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AF1E4861BFE6E40004F5DEC /* SwiftyTime.swift in Sources */,
+				1A4561A11C19D12600313D20 /* SwiftyTime.swift in Sources */,
 				6EE9C1591B00BB5B00D6B91C /* main.swift in Sources */,
 				6EE9C1741B00BBB700D6B91C /* SwiftyTimer.swift in Sources */,
 			);

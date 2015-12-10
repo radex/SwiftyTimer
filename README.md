@@ -23,7 +23,7 @@ SwiftyTimer uses closures instead of target/selector/userInfo.
 You can specify time intervals with intuitive [Ruby on Rails](http://rubyonrails.org)-like helpers:
 
 ```swift
-100.miliseconds
+100.milliseconds
 1.second
 2.5.seconds
 5.seconds

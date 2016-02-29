@@ -57,7 +57,7 @@ timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
 
 ## Installation
 
-The simplest way to install this library is to copy `Src/SwiftyTimer.swift` to your project. There's no step two!
+The simplest way to install this library is to copy `Sources/SwiftyTimer.swift` to your project. There's no step two!
 
 #### CocoaPods
 

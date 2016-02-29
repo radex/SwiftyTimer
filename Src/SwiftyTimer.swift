@@ -92,25 +92,19 @@ extension NSTimer {
 // MARK: - Time extensions
 
 extension Double {
-    
-    private func assertOne(value: Double) -> Double {
-        assert(self == 1, "🤓 Use plural property for numbers other than 1")
-        return value
-    }
-    
-    public var millisecond: NSTimeInterval  { return assertOne(milliseconds) }
+    public var millisecond: NSTimeInterval  { return self / 1000 }
     public var milliseconds: NSTimeInterval { return self / 1000 }
     public var ms: NSTimeInterval           { return self / 1000 }
     
-    public var second: NSTimeInterval       { return assertOne(seconds) }
+    public var second: NSTimeInterval       { return self }
     public var seconds: NSTimeInterval      { return self }
     
-    public var minute: NSTimeInterval       { return assertOne(minutes) }
+    public var minute: NSTimeInterval       { return self * 60 }
     public var minutes: NSTimeInterval      { return self * 60 }
     
-    public var hour: NSTimeInterval         { return assertOne(hours) }
+    public var hour: NSTimeInterval         { return self * 3600 }
     public var hours: NSTimeInterval        { return self * 3600 }
     
-    public var day: NSTimeInterval          { return assertOne(days) }
+    public var day: NSTimeInterval          { return self * 3600 * 24 }
     public var days: NSTimeInterval         { return self * 3600 * 24 }
 }

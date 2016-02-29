@@ -16,7 +16,7 @@
 		3E721ABB1BF7255D008AF027 /* SwiftyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E721AC01BF7255D008AF027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E721AC61BF725A2008AF027 /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTimer.swift; sourceTree = "<group>"; };
-		6E7E408A1C84B1A20030CEBB /* SwiftyTimerMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyTimerMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7E408A1C84B1A20030CEBB /* SwiftyTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7E40921C84B2970030CEBB /* SwiftyTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyTimer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,7 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				3E721ABB1BF7255D008AF027 /* SwiftyTimer.framework */,
-				6E7E408A1C84B1A20030CEBB /* SwiftyTimerMac.framework */,
+				6E7E408A1C84B1A20030CEBB /* SwiftyTimer.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,7 +121,7 @@
 			);
 			name = SwiftyTimerMac;
 			productName = SwiftyTimerMac;
-			productReference = 6E7E408A1C84B1A20030CEBB /* SwiftyTimerMac.framework */;
+			productReference = 6E7E408A1C84B1A20030CEBB /* SwiftyTimer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -338,7 +338,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimerMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftyTimer;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -359,7 +359,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimerMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SwiftyTimer;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};

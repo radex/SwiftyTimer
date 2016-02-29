@@ -1,6 +1,12 @@
 # SwiftyTimer
 
-SwiftyTimer is a set of extensions to make the `NSTimer` API cleaner, nicer to use, and at home with Swift's syntax.
+![Platforms](https://img.shields.io/badge/platforms-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos-lightgrey.svg)
+[![CocoaPods](http://img.shields.io/cocoapods/v/SwiftyTimer.svg)](https://cocoapods.org/pods/SwiftyTimer)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
+![Swift version](https://img.shields.io/badge/swift-2.1-orange.svg)
+
+#### Modern Swifty API for `NSTimer`
+###### SwiftyTimer allows you to instantly schedule delays and repeating timers using convenient closure syntax. It's time to get rid of Objective-C cruft.
 
 Read [Swifty APIs: NSTimer](http://radex.io/swift/nstimer/) for more information about this project.
 

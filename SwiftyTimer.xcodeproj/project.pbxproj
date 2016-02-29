@@ -10,6 +10,7 @@
 		3E721AC71BF725A2008AF027 /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E721AC61BF725A2008AF027 /* SwiftyTimer.swift */; };
 		6E7E40931C84B2C60030CEBB /* SwiftyTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7E40921C84B2970030CEBB /* SwiftyTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E7E40941C84B2C70030CEBB /* SwiftyTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7E40921C84B2970030CEBB /* SwiftyTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E7E40A21C84B3F40030CEBB /* SwiftyTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7E40921C84B2970030CEBB /* SwiftyTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E7E40A21C84B3F40030CEBB /* SwiftyTimer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +343,7 @@
 		3E721AC41BF7255D008AF027 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -360,6 +363,7 @@
 		3E721AC51BF7255D008AF027 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -378,6 +382,7 @@
 		6E7E40901C84B1A20030CEBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -389,7 +394,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimerMac;
+				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimer;
 				PRODUCT_NAME = SwiftyTimer;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -399,6 +404,7 @@
 		6E7E40911C84B1A20030CEBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -410,7 +416,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimerMac;
+				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimer;
 				PRODUCT_NAME = SwiftyTimer;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -420,6 +426,7 @@
 		6E7E40A01C84B3790030CEBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -427,7 +434,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Src/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.radex.SwiftyTimer-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimer;
 				PRODUCT_NAME = SwiftyTimer;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -439,6 +446,7 @@
 		6E7E40A11C84B3790030CEBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -446,7 +454,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Src/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.radex.SwiftyTimer-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = io.radex.SwiftyTimer;
 				PRODUCT_NAME = SwiftyTimer;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;

@@ -15,7 +15,7 @@
 		6EE9C1531B00BB5B00D6B91C /* SwiftyTimerTests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyTimerTests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EE9C1571B00BB5B00D6B91C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EE9C1581B00BB5B00D6B91C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		6EE9C1731B00BBB700D6B91C /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTimer.swift; path = ../../Src/SwiftyTimer.swift; sourceTree = "<group>"; };
+		6EE9C1731B00BBB700D6B91C /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyTimer.swift; path = ../../Sources/SwiftyTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

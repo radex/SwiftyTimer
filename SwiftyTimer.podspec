@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SwiftyTimer'
-  s.version = '1.2.0'
+  s.version = '1.3.0'
   s.license = 'MIT'
   s.summary = 'Swifty API for NSTimer'
   s.homepage = 'https://github.com/radex/SwiftyTimer'

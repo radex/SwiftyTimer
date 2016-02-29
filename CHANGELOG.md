@@ -1,4 +1,4 @@
-### master
+### 1.3.0 (2016-02-29)
 
 - Add Carthage support
 - Add tvOS and watchOS support

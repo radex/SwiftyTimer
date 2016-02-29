@@ -63,23 +63,35 @@ timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
 
 ## Installation
 
-The simplest way to install this library is to copy `Sources/SwiftyTimer.swift` to your project. There's no step two!
-
-#### CocoaPods
-
-You can also install this library using CocoaPods. Just add this line to your Podfile:
+If you're using CocoaPods, just add this line to your Podfile:
 
 ```ruby
 pod 'SwiftyTimer'
 ```
 
-Then import library module like so:
+Install by running this command in your terminal:
+
+```sh
+pod install
+```
+
+Then import the library in all files where you use it:
 
 ```swift
 import SwiftyTimer
 ```
 
-Note that this requires iOS 8 or OS X 10.9+
+#### Carthage
+
+Just add to your Cartfile:
+
+```ruby
+github "radex/SwiftyTimer"
+```
+
+#### Manually
+
+Simply copy `Sources/SwiftyTimer.swift` to your Xcode project.
 
 ## More like this
 

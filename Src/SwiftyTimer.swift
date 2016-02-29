@@ -89,4 +89,33 @@ extension NSTimer {
     }
 }
 
+// MARK: - Time extensions
 
+private let milliDivider: Double    = 1000
+private let secondsInMinute: Double = 60
+private let minutesInHour: Double   = 60
+private let hoursInDay: Double      = 24
+
+extension Double {
+    
+    private func assertOneOrLess(value: Double) -> Double {
+        assert(self <= 1, "🤓 Use plural property for numbers above 1.")
+        return value
+    }
+    
+    public var millisecond: NSTimeInterval  { return assertOneOrLess(milliseconds) }
+    public var milliseconds: NSTimeInterval { return self / milliDivider }
+    public var ms: NSTimeInterval           { return milliseconds }
+    
+    public var second: NSTimeInterval       { return assertOneOrLess(seconds) }
+    public var seconds: NSTimeInterval      { return self }
+    
+    public var minute: NSTimeInterval       { return assertOneOrLess(minutes) }
+    public var minutes: NSTimeInterval      { return self * secondsInMinute }
+    
+    public var hour: NSTimeInterval         { return assertOneOrLess(hours)}
+    public var hours: NSTimeInterval        { return minutes * minutesInHour }
+    
+    public var day: NSTimeInterval          { return assertOneOrLess(days) }
+    public var days: NSTimeInterval         { return hours * hoursInDay }
+}

@@ -37,12 +37,11 @@ private class NSTimerActor {
 }
 
 extension NSTimer {
-    // NOTE: `new` class functions are a workaround for a crashing bug when using convenience initializers (18720947)
-    
     /// Create a timer that will call `block` once after the specified time.
     ///
-    /// **Note:** the timer won't fire until it's scheduled on the run loop.
-    /// Use `NSTimer.after` to create and schedule a timer in one step.
+    /// - Note: The timer won't fire until it's scheduled on the run loop.
+    ///         Use `NSTimer.after` to create and schedule a timer in one step.
+    /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
     
     public class func new(after interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
         let actor = NSTimerActor(block)
@@ -51,8 +50,9 @@ extension NSTimer {
     
     /// Create a timer that will call `block` repeatedly in specified time intervals.
     ///
-    /// **Note:** the timer won't fire until it's scheduled on the run loop.
-    /// Use `NSTimer.every` to create and schedule a timer in one step.
+    /// - Note: The timer won't fire until it's scheduled on the run loop.
+    ///         Use `NSTimer.after` to create and schedule a timer in one step.
+    /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
     
     public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
         let actor = NSTimerActor(block)

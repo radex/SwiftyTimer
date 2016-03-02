@@ -18,4 +18,6 @@ script:
 # - set -o pipefail && xctool test -project SwiftyTimer.xcodeproj -scheme 'SwiftyTimer watchOS' -sdk iphonesimulator -destination 'name=Apple Watch - 42mm' ONLY_ACTIVE_ARCH=NO | xcpretty
 # - set -o pipefail && xctool test -project SwiftyTimer.xcodeproj -scheme 'SwiftyTimer Mac' ONLY_ACTIVE_ARCH=NO | xcpretty
 
+- set -o pipefail && xctool archive -archivePath 'Tests' -project SwiftyTimerTests/SwiftyTimerTests.xcodeproj -scheme 'SwiftyTimerTests' && Tests.xcarchive/Products/Applications/SwiftyTimerTests.app/Contents/MacOS/SwiftyTimerTests
+
 - pod lib lint

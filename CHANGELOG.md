@@ -1,7 +1,8 @@
-### master
+### 1.3.1 (2016-03-02)
 
-- Refactoring (Removed NSTimerActor. Used CFRunLoopTimerCreateWithHandler instead.) #22 @Austinate
 - Added support for Swift Package Manager
+- Refactoring (Removed NSTimerActor. Used CFRunLoopTimerCreateWithHandler instead.) #22 @Austinate
+- Added Travis CI
 
 ### 1.3.0 (2016-02-29)
 

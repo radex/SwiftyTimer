@@ -1,6 +1,7 @@
 # SwiftyTimer
 
 ![Platforms](https://img.shields.io/badge/platforms-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos-lightgrey.svg)
+[![CI Status](https://api.travis-ci.org/radex/SwiftyTimer.svg?branch=master)](https://travis-ci.org/radex/SwiftyTimer)
 [![CocoaPods](http://img.shields.io/cocoapods/v/SwiftyTimer.svg)](https://cocoapods.org/pods/SwiftyTimer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
 ![Swift version](https://img.shields.io/badge/swift-2.1-orange.svg)

@@ -24,41 +24,31 @@
 
 import Foundation
 
-private class NSTimerActor {
-    let block: () -> Void
-    
-    init(_ block: () -> Void) {
-        self.block = block
-    }
-    
-    @objc func fire() {
-        block()
-    }
-}
-
 extension NSTimer {
     /// Create a timer that will call `block` once after the specified time.
     ///
     /// - Note: The timer won't fire until it's scheduled on the run loop.
     ///         Use `NSTimer.after` to create and schedule a timer in one step.
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
-    
+
     public class func new(after interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        let actor = NSTimerActor(block)
-        return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: false)
+        return CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, 0, 0, 0) { _ in
+            block()
+        }
     }
-    
     /// Create a timer that will call `block` repeatedly in specified time intervals.
     ///
     /// - Note: The timer won't fire until it's scheduled on the run loop.
     ///         Use `NSTimer.after` to create and schedule a timer in one step.
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
-    
+
     public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        let actor = NSTimerActor(block)
-        return self.init(timeInterval: interval, target: actor, selector: "fire", userInfo: nil, repeats: true)
+        return CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, interval, 0, 0) { _ in
+            block()
+        }
     }
-    
+
+
     /// Create and schedule a timer that will call `block` once after the specified time.
     
     public class func after(interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {

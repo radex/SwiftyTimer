@@ -1,3 +1,8 @@
+### master
+
+- Refactoring (Removed NSTimerActor. Used CFRunLoopTimerCreateWithHandler instead.) #22 @Austinate
+- Added support for Swift Package Manager
+
 ### 1.3.0 (2016-02-29)
 
 - Add Carthage support

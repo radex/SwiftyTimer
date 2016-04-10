@@ -43,8 +43,7 @@ extension NSTimer {
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
 
     public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        let actor = Actor { _ in block() }
-        return self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: true)
+        return self.new(every: interval) { (_: NSTimer) in block() }
     }
     
     /// Create a timer that will call `block` repeatedly in specified time intervals.

@@ -1,3 +1,7 @@
+### master
+
+- Fix Carthage support for Mac (set deployment target to 10.9)
+
 ### 1.3.1 (2016-03-02)
 
 - Added support for Swift Package Manager

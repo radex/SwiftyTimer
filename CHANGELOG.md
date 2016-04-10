@@ -1,6 +1,7 @@
 ### master
 
 - Fix Carthage support for Mac (set deployment target to 10.9)
+- Add a variant of `every` and `new(every:)` that takes a closure with `NSTimer` passed in
 
 ### 1.3.1 (2016-03-02)
 

@@ -78,7 +78,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func test7() {
-        NSTimer.after(0.1.seconds, done)
+        NSTimer.after(0.1.seconds, test8)
+    }
+    
+    func test8() {
+        var fires = 0
+        let timer = NSTimer.new(every: 0.1.seconds) { (timer: NSTimer) in
+            guard fires <= 1 else { fatalError("should be invalidated") }
+            defer { fires += 1 }
+            
+            if fires == 1 {
+                timer.invalidate()
+                self.test9()
+            }
+        }
+        timer.start()
+    }
+    
+    func test9() {
+        var fires = 0
+        NSTimer.every(0.1.seconds) { (timer: NSTimer) in
+            guard fires <= 1 else { fatalError("should be invalidated") }
+            defer { fires += 1 }
+            
+            if fires == 1 {
+                timer.invalidate()
+                self.done()
+            }
+        }
     }
     
     func done() {

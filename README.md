@@ -62,6 +62,20 @@ timer.start()
 timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
 ```
 
+### Invalidation
+
+If you want to invalidate a repeating timer on some condition, you can take an `NSTimer` argument in the closure you pass in:
+
+```swift
+NSTimer.every(5.seconds) { (timer: NSTimer) in
+    // do something
+    
+    if finished {
+        timer.invalidate()
+    }
+}
+```
+
 ## Installation
 
 If you're using CocoaPods, just add this line to your Podfile:

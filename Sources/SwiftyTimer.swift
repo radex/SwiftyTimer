@@ -32,9 +32,8 @@ extension NSTimer {
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
 
     public class func new(after interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        return CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, 0, 0, 0) { _ in
-            block()
-        }
+        let actor = Actor { _ in block() }
+        return self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: false)
     }
     
     /// Create a timer that will call `block` repeatedly in specified time intervals.
@@ -44,9 +43,8 @@ extension NSTimer {
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
 
     public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
-        return CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, interval, 0, 0) { _ in
-            block()
-        }
+        let actor = Actor { _ in block() }
+        return self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: true)
     }
     
     /// Create a timer that will call `block` repeatedly in specified time intervals.
@@ -57,11 +55,8 @@ extension NSTimer {
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
     
     @nonobjc public class func new(every interval: NSTimeInterval, _ block: NSTimer -> Void) -> NSTimer {
-        var timer: NSTimer!
-        timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, interval, 0, 0) { _ in
-            block(timer)
-        }
-        return timer
+        let actor = Actor(block)
+        return self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: true)
     }
 
     /// Create and schedule a timer that will call `block` once after the specified time.
@@ -99,6 +94,20 @@ extension NSTimer {
         
         for mode in modes {
             runLoop.addTimer(self, forMode: mode)
+        }
+    }
+    
+// MARK: - Internals
+    
+    private class Actor {
+        var block: NSTimer -> Void
+        
+        init(_ block: NSTimer -> Void) {
+            self.block = block
+        }
+        
+        @objc func fire(timer: NSTimer) {
+            block(timer)
         }
     }
 }

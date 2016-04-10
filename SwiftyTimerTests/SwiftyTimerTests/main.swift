@@ -81,6 +81,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSTimer.after(0.1.seconds, test8)
     }
     
+    // repeats with NSTimer passed in
+    
     func test8() {
         var fires = 0
         let timer = NSTimer.new(every: 0.1.seconds) { (timer: NSTimer) in
@@ -103,9 +105,61 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if fires == 1 {
                 timer.invalidate()
+                
+                if #available(OSX 10.11, *) {
+                    self.test10()
+                } else {
+                    self.done()
+                }
+            }
+        }
+    }
+    
+    // init() syntax
+    
+    @available(OSX 10.11, *)
+    func test10() {
+        var fired = false
+        let timer = NSTimer(after: 0.1.seconds) {
+            guard !fired else { fatalError("should only be called once") }
+            defer { fired = true }
+            
+            self.test11()
+            fired = true
+        }
+        
+        timer.start()
+    }
+    
+    @available(OSX 10.11, *)
+    func test11() {
+        var fires = 0
+        var timer: NSTimer!
+        timer = NSTimer(every: 0.1.seconds) {
+            guard fires <= 1 else { fatalError("should be invalidated") }
+            defer { fires += 1 }
+            
+            if fires == 1 {
+                timer.invalidate()
+                self.test12()
+            }
+        }
+        timer.start()
+    }
+    
+    @available(OSX 10.11, *)
+    func test12() {
+        var fires = 0
+        let timer = NSTimer(every: 0.1.seconds) { (timer: NSTimer) in
+            guard fires <= 1 else { fatalError("should be invalidated") }
+            defer { fires += 1 }
+            
+            if fires == 1 {
+                timer.invalidate()
                 self.done()
             }
         }
+        timer.start()
     }
     
     func done() {

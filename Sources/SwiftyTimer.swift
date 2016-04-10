@@ -25,6 +25,51 @@
 import Foundation
 
 extension NSTimer {
+    
+// MARK: Create a timer without scheduling
+    
+    /// Create a timer that will call `block` once after the specified time.
+    ///
+    /// - Note: The timer won't fire until it's scheduled on the run loop.
+    ///         Use `NSTimer.after` to create and schedule a timer in one step.
+    /// - Note: If you support iOS 8 or older, or OS X 10.11 or older, use `NSTimer.new(after:)`
+    ///         instead of this initializer.
+    
+    @available(iOS 9, OSX 10.11, watchOS 2, tvOS 9, *)
+    public convenience init(after interval: NSTimeInterval, _ block: () -> Void) {
+        let actor = Actor { _ in block() }
+        self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: false)
+    }
+    
+    /// Create a timer that will call `block` repeatedly in specified time intervals.
+    ///
+    /// - Note: The timer won't fire until it's scheduled on the run loop.
+    ///         Use `NSTimer.every` to create and schedule a timer in one step.
+    /// - Note: If you support iOS 8 or older, or OS X 10.11 or older, use `NSTimer.new(every:)`
+    ///         instead of this initializer.
+    
+    @available(iOS 9, OSX 10.11, watchOS 2, tvOS 9, *)
+    public convenience init(every interval: NSTimeInterval, _ block: () -> Void) {
+        let actor = Actor { _ in block() }
+        self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: true)
+    }
+    
+    /// Create a timer that will call `block` repeatedly in specified time intervals.
+    /// (This variant also passes the timer instance to the block)
+    ///
+    /// - Note: The timer won't fire until it's scheduled on the run loop.
+    ///         Use `NSTimer.every` to create and schedule a timer in one step.
+    /// - Note: If you support iOS 8 or older, or OS X 10.11 or older, use `NSTimer.new(every:)`
+    ///         instead of this initializer.
+    
+    @available(iOS 9, OSX 10.11, watchOS 2, tvOS 9, *)
+    @nonobjc public convenience init(every interval: NSTimeInterval, _ block: NSTimer -> Void) {
+        let actor = Actor(block)
+        self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: true)
+    }
+    
+// MARK: (Legacy factory methods)
+    
     /// Create a timer that will call `block` once after the specified time.
     ///
     /// - Note: The timer won't fire until it's scheduled on the run loop.
@@ -39,7 +84,7 @@ extension NSTimer {
     /// Create a timer that will call `block` repeatedly in specified time intervals.
     ///
     /// - Note: The timer won't fire until it's scheduled on the run loop.
-    ///         Use `NSTimer.after` to create and schedule a timer in one step.
+    ///         Use `NSTimer.every` to create and schedule a timer in one step.
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
 
     public class func new(every interval: NSTimeInterval, _ block: () -> Void) -> NSTimer {
@@ -50,7 +95,7 @@ extension NSTimer {
     /// (This variant also passes the timer instance to the block)
     ///
     /// - Note: The timer won't fire until it's scheduled on the run loop.
-    ///         Use `NSTimer.after` to create and schedule a timer in one step.
+    ///         Use `NSTimer.every` to create and schedule a timer in one step.
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
     
     @nonobjc public class func new(every interval: NSTimeInterval, _ block: NSTimer -> Void) -> NSTimer {

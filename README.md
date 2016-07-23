@@ -1,4 +1,4 @@
-# SwiftyTimer
+# SwiftyTimer (Swift 3)
 
 ![Platforms](https://img.shields.io/badge/platforms-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos-lightgrey.svg)
 [![CI Status](https://api.travis-ci.org/radex/SwiftyTimer.svg?branch=master)](https://travis-ci.org/radex/SwiftyTimer)
@@ -53,7 +53,7 @@ let timer = Timer.new(every: 1.second) {
 }
 ```
 
-(This should be defined as an initializer, but [a bug in Swift](http://www.openradar.me/18720947) prevents this)
+(This should be defined as an initializer, but [a bug in Foundation](http://www.openradar.me/18720947) prevents this)
 
 Call `start()` to schedule timers created using `new`. You can optionally pass the run loop and run loop modes:
 
@@ -81,7 +81,7 @@ Timer.every(5.seconds) { (timer: Timer) in
 If you're using CocoaPods, just add this line to your Podfile:
 
 ```ruby
-pod 'SwiftyTimer'
+pod 'SwiftyTimer', git: 'https://github.com/radex/SwiftyTimer.git', branch: 'swift3'
 ```
 
 Install by running this command in your terminal:
@@ -101,7 +101,7 @@ import SwiftyTimer
 Just add to your Cartfile:
 
 ```ruby
-github "radex/SwiftyTimer"
+github "radex/SwiftyTimer" "swift3"
 ```
 
 #### Manually

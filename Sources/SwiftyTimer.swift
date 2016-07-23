@@ -30,6 +30,7 @@ extension Timer {
     
     /// Create and schedule a timer that will call `block` once after the specified time.
     
+    @discardableResult
     public class func after(_ interval: TimeInterval, _ block: () -> Void) -> Timer {
         let timer = Timer.new(after: interval, block)
         timer.start()
@@ -38,6 +39,7 @@ extension Timer {
     
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     
+    @discardableResult
     public class func every(_ interval: TimeInterval, _ block: () -> Void) -> Timer {
         let timer = Timer.new(every: interval, block)
         timer.start()
@@ -47,7 +49,8 @@ extension Timer {
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     /// (This variant also passes the timer instance to the block)
     
-    @nonobjc public class func every(_ interval: TimeInterval, _ block: (Timer) -> Void) -> Timer {
+    @nonobjc @discardableResult
+    public class func every(_ interval: TimeInterval, _ block: (Timer) -> Void) -> Timer {
         let timer = Timer.new(every: interval, block)
         timer.start()
         return timer

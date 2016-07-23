@@ -4,7 +4,7 @@
 [![CI Status](https://api.travis-ci.org/radex/SwiftyTimer.svg?branch=master)](https://travis-ci.org/radex/SwiftyTimer)
 [![CocoaPods](http://img.shields.io/cocoapods/v/SwiftyTimer.svg)](https://cocoapods.org/pods/SwiftyTimer)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
-![Swift version](https://img.shields.io/badge/swift-2.2%20|%202.3-orange.svg)
+![Swift version](https://img.shields.io/badge/swift-3.0-orange.svg)
 
 #### Modern Swifty API for `NSTimer`
 ###### SwiftyTimer allows you to instantly schedule delays and repeating timers using convenient closure syntax. It's time to get rid of Objective-C cruft.
@@ -13,14 +13,14 @@ Read [Swifty APIs: NSTimer](http://radex.io/swift/nstimer/) for more information
 
 ## Usage
 
-You can easily schedule repeating and non-repeating timers (repeats and delays) using `NSTimer.every` and `NSTimer.after`:
+You can easily schedule repeating and non-repeating timers (repeats and delays) using `Timer.every` and `Timer.after`:
 
 ```swift
-NSTimer.every(0.7.seconds) {
+Timer.every(0.7.seconds) {
     statusItem.blink()
 }
 
-NSTimer.after(1.minute) {
+Timer.after(1.minute) {
     println("Are you still here?")
 }
 ```
@@ -40,7 +40,7 @@ You can specify time intervals with these intuitive helpers:
 You can pass method references instead of closures:
 
 ```swift
-NSTimer.every(30.seconds, align)
+Timer.every(30.seconds, align)
 ```
 
 ### Manual scheduling
@@ -48,7 +48,7 @@ NSTimer.every(30.seconds, align)
 If you want to make a timer object without scheduling, use `new(after:)` and `new(every:)`:
 
 ```swift
-let timer = NSTimer.new(every: 1.second) {
+let timer = Timer.new(every: 1.second) {
     println(self.status)
 }
 ```
@@ -59,15 +59,15 @@ Call `start()` to schedule timers created using `new`. You can optionally pass t
 
 ```swift
 timer.start()
-timer.start(modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
+timer.start(modes: .defaultRunLoopMode, RunLoopMode(NSEventTrackingRunLoopMode)) // Ugly, yes: rdar://27509030
 ```
 
 ### Invalidation
 
-If you want to invalidate a repeating timer on some condition, you can take an `NSTimer` argument in the closure you pass in:
+If you want to invalidate a repeating timer on some condition, you can take a `Timer` argument in the closure you pass in:
 
 ```swift
-NSTimer.every(5.seconds) { (timer: NSTimer) in
+Timer.every(5.seconds) { (timer: Timer) in
     // do something
     
     if finished {

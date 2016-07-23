@@ -1,9 +1,9 @@
 import Cocoa
 
-let app = NSApplication.sharedApplication()
+let app = NSApplication.shared()
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         test()
     }
     
@@ -23,18 +23,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func test2() {
         var fired = false
-        NSTimer.after(0.1.seconds) {
+        Timer.after(0.1.seconds) {
             assert(!fired)
             fired = true
             self.test3()
         }
     }
     
-    var timer1: NSTimer!
+    var timer1: Timer!
     
     func test3() {
         var fired = false
-        timer1 = NSTimer.every(0.1.seconds) {
+        timer1 = Timer.every(0.1.seconds) {
             if fired {
                 self.test4()
                 self.timer1.invalidate()
@@ -44,21 +44,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    let timer2 = NSTimer.new(after: 0.1.seconds) { fatalError() }
-    let timer3 = NSTimer.new(every: 0.1.seconds) { fatalError() }
+    let timer2 = Timer.new(after: 0.1.seconds) { fatalError() }
+    let timer3 = Timer.new(every: 0.1.seconds) { fatalError() }
     
     func test4() {
-        let timer = NSTimer.new(after: 0.1.seconds) {
+        let timer = Timer.new(after: 0.1.seconds) {
             self.test5()
         }
-        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
+        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
     }
     
-    var timer4: NSTimer!
+    var timer4: Timer!
     
     func test5() {
         var fired = false
-        timer4 = NSTimer.new(every: 0.1.seconds) {
+        timer4 = Timer.new(every: 0.1.seconds) {
             if fired {
                 self.timer4.invalidate()
                 self.test6()
@@ -70,20 +70,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func test6() {
-        let timer = NSTimer.new(after: 0.1.seconds) {
+        let timer = Timer.new(after: 0.1.seconds) {
             self.test7()
         }
         
-        timer.start(runLoop: NSRunLoop.currentRunLoop(), modes: NSDefaultRunLoopMode, NSEventTrackingRunLoopMode)
+        timer.start(runLoop: RunLoop.current, modes: RunLoopMode.defaultRunLoopMode, RunLoopMode(NSEventTrackingRunLoopMode))
     }
 
     func test7() {
-        NSTimer.after(0.1.seconds, test8)
+        Timer.after(0.1.seconds, test8)
     }
     
     func test8() {
         var fires = 0
-        let timer = NSTimer.new(every: 0.1.seconds) { (timer: NSTimer) in
+        let timer = Timer.new(every: 0.1.seconds) { (timer: Timer) in
             guard fires <= 1 else { fatalError("should be invalidated") }
             defer { fires += 1 }
             
@@ -97,7 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func test9() {
         var fires = 0
-        NSTimer.every(0.1.seconds) { (timer: NSTimer) in
+        Timer.every(0.1.seconds) { (timer: Timer) in
             guard fires <= 1 else { fatalError("should be invalidated") }
             defer { fires += 1 }
             

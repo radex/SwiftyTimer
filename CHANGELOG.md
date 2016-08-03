@@ -1,3 +1,7 @@
+### 1.4.1 (2016-08-03)
+
+- Add support for Xcode 8 (Swift 2.3) for Carthage users
+
 ### 1.4.0 (2016-04-10)
 
 - Add a variant of `every` and `new(every:)` that takes a closure with `NSTimer` passed in

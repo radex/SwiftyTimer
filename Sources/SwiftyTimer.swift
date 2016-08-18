@@ -46,8 +46,8 @@ extension Timer {
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     /// (This variant also passes the timer instance to the block)
     
-    @nonobjc public class func every(_ interval: TimeInterval, _ block: @escaping (Timer) -> Void) -> Timer {
-        let actor = Actor(block)
+    public class func every(interval: TimeInterval, _ block: @escaping () -> (Timer) -> Void) -> Timer {
+        let actor = Actor(block())
         return self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: true)
     }
     
@@ -59,10 +59,9 @@ extension Timer {
     ///         Use `NSTimer.after` to create and schedule a timer in one step.
     /// - Note: The `new` class function is a workaround for a crashing bug when using convenience initializers (rdar://18720947)
     
-    @available(iOS 9, OSX 10.11, watchOS 2, tvOS 9, *)
-    public convenience init(after interval: TimeInterval, _ block: @escaping () -> Void) {
+    public class func after(interval: TimeInterval, _ block: @escaping () -> Void) -> Timer {
         let actor = Actor { _ in block() }
-        self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: false)
+        return self.init(timeInterval: interval, target: actor, selector: #selector(Actor.fire), userInfo: nil, repeats: false)
     }
     
     /// Create a timer that will call `block` repeatedly in specified time intervals.

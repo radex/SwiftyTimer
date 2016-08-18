@@ -214,6 +214,7 @@
 					};
 					6E7E40891C84B1A20030CEBB = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					6E7E40991C84B3790030CEBB = {
 						CreatedOnToolsVersion = 7.2;

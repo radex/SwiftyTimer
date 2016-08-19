@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.test7()
         }
         
-        timer.start(runLoop: .current, modes: .defaultRunLoopMode, RunLoopMode(NSEventTrackingRunLoopMode))
+        timer.start(runLoop: .current, modes: .defaultRunLoopMode, .eventTrackingRunLoopMode)
     }
 
     func test7() {

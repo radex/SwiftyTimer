@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let timer = Timer.new(after: 0.1.seconds) {
             self.test5()
         }
-        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
+        RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
     }
     
     var timer4: Timer!

@@ -59,7 +59,7 @@ Call `start()` to schedule timers created using `new`. You can optionally pass t
 
 ```swift
 timer.start()
-timer.start(modes: .defaultRunLoopMode, RunLoopMode(NSEventTrackingRunLoopMode)) // Ugly, yes: rdar://27509030
+timer.start(modes: .defaultRunLoopMode, .eventTrackingRunLoopMode)
 ```
 
 ### Invalidation

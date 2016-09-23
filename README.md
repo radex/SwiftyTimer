@@ -78,6 +78,10 @@ Timer.every(5.seconds) { (timer: Timer) in
 
 ## Installation
 
+**For Swift 3 compatibility, check out [the `swift3` branch](https://github.com/radex/SwiftyTimer/tree/swift3)**
+
+#### CocoaPods
+
 If you're using CocoaPods, just add this line to your Podfile:
 
 ```ruby

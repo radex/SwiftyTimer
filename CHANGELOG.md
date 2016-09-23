@@ -1,4 +1,8 @@
-### swift3
+### 2.0.0 (2016-09-23)
+
+This is the Swift 3 update version.
+
+It contains no major changes in the library itself, however it does change some APIs because of Swift 3 requirements.
 
 - Updated for Swift 3 and Xcode 8 compatibility #28 @ldiqual
 

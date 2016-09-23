@@ -1,4 +1,4 @@
-# SwiftyTimer (Swift 3)
+# SwiftyTimer
 
 ![Platforms](https://img.shields.io/badge/platforms-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos-lightgrey.svg)
 [![CI Status](https://api.travis-ci.org/radex/SwiftyTimer.svg?branch=master)](https://travis-ci.org/radex/SwiftyTimer)
@@ -78,14 +78,14 @@ Timer.every(5.seconds) { (timer: Timer) in
 
 ## Installation
 
-**For Swift 3 compatibility, check out [the `swift3` branch](https://github.com/radex/SwiftyTimer/tree/swift3)**
+**Note:** If you're running Swift 2, use [SwiftyTimer v1.4.1](https://github.com/radex/SwiftyTimer/tree/1.4.1)
 
 #### CocoaPods
 
 If you're using CocoaPods, just add this line to your Podfile:
 
 ```ruby
-pod 'SwiftyTimer', git: 'https://github.com/radex/SwiftyTimer.git', branch: 'swift3'
+pod 'SwiftyTimer'
 ```
 
 Install by running this command in your terminal:
@@ -105,7 +105,7 @@ import SwiftyTimer
 Just add to your Cartfile:
 
 ```ruby
-github "radex/SwiftyTimer" "swift3"
+github "radex/SwiftyTimer"
 ```
 
 #### Manually

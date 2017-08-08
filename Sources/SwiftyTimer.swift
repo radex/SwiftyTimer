@@ -31,18 +31,18 @@ extension Timer {
     /// Create and schedule a timer that will call `block` once after the specified time.
     
     @discardableResult
-    public class func after(_ interval: TimeInterval, _ block: @escaping () -> Void) -> Timer {
+    public class func after(_ interval: TimeInterval, runLoop: RunLoop = .current, modes: RunLoopMode..., _ block: @escaping () -> Void) -> Timer {
         let timer = Timer.new(after: interval, block)
-        timer.start()
+        timer.start(runLoop: runLoop, modes: modes)
         return timer
     }
     
     /// Create and schedule a timer that will call `block` repeatedly in specified time intervals.
     
     @discardableResult
-    public class func every(_ interval: TimeInterval, _ block: @escaping () -> Void) -> Timer {
+    public class func every(_ interval: TimeInterval, runLoop: RunLoop = .current, modes: RunLoopMode..., _ block: @escaping () -> Void) -> Timer {
         let timer = Timer.new(every: interval, block)
-        timer.start()
+        timer.start(runLoop: runLoop, modes: modes)
         return timer
     }
     
@@ -50,9 +50,9 @@ extension Timer {
     /// (This variant also passes the timer instance to the block)
     
     @nonobjc @discardableResult
-    public class func every(_ interval: TimeInterval, _ block: @escaping (Timer) -> Void) -> Timer {
+    public class func every(_ interval: TimeInterval, runLoop: RunLoop = .current, modes: RunLoopMode..., _ block: @escaping (Timer) -> Void) -> Timer {
         let timer = Timer.new(every: interval, block)
-        timer.start()
+        timer.start(runLoop: runLoop, modes: modes)
         return timer
     }
     
@@ -105,6 +105,20 @@ extension Timer {
     /// Specify `runLoop` or `modes` to override these defaults.
     
     public func start(runLoop: RunLoop = .current, modes: RunLoopMode...) {
+        let modes = modes.isEmpty ? [.defaultRunLoopMode] : modes
+        
+        for mode in modes {
+            runLoop.add(self, forMode: mode)
+        }
+    }
+    
+    /// Schedule this timer on the run loop
+    ///
+    /// By default, the timer is scheduled on the current run loop for the default mode.
+    /// Specify `runLoop` or `modes` to override these defaults.
+    /// Usefull since the splat operator is not a thing in Swift
+    
+    public func start(runLoop: RunLoop = .current, modes: [RunLoopMode]) {
         let modes = modes.isEmpty ? [.defaultRunLoopMode] : modes
         
         for mode in modes {

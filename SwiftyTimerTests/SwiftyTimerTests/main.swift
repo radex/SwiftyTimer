@@ -103,6 +103,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if fires == 1 {
                 timer.invalidate()
+                self.test10()
+            }
+        }
+    }
+    
+    func test10() {
+        var fires = 0
+        Timer.every(0.1.seconds, modes: .commonModes) { (timer: Timer) in
+            guard fires <= 1 else { fatalError("should be invalidated") }
+            defer { fires += 1 }
+            
+            if fires == 1 {
+                timer.invalidate()
                 self.done()
             }
         }

@@ -1,7 +1,7 @@
 language: objective-c
 cache: cocoapods
 rvm: 2.2.2
-osx_image: xcode8
+osx_image: xcode10
 
 env:
   global:
@@ -10,7 +10,7 @@ env:
   - PROJECT=SwiftyTimer.xcodeproj
 
 before_install:
-  - gem install cocoapods -v 1.1.0.rc2 # remove -v after it ships
+  - gem install cocoapods
   - gem install xcpretty
 
 script:

@@ -1,6 +1,6 @@
 import Cocoa
 
-let app = NSApplication.shared()
+let app = NSApplication.shared
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let timer = Timer.new(after: 0.1.seconds) {
             self.test5()
         }
-        RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+        RunLoop.current.add(timer, forMode: .default)
     }
     
     var timer4: Timer!
@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.test7()
         }
         
-        timer.start(runLoop: .current, modes: .defaultRunLoopMode, .eventTrackingRunLoopMode)
+        timer.start(runLoop: .current, modes: .default, .eventTracking)
     }
 
     func test7() {

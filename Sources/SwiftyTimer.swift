@@ -104,8 +104,8 @@ extension Timer {
     /// By default, the timer is scheduled on the current run loop for the default mode.
     /// Specify `runLoop` or `modes` to override these defaults.
     
-    public func start(runLoop: RunLoop = .current, modes: RunLoopMode...) {
-        let modes = modes.isEmpty ? [.defaultRunLoopMode] : modes
+    public func start(runLoop: RunLoop = .current, modes: RunLoop.Mode...) {
+        let modes = modes.isEmpty ? [.default] : modes
         
         for mode in modes {
             runLoop.add(self, forMode: mode)

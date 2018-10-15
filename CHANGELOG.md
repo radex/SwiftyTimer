@@ -1,3 +1,9 @@
+### 2.1.0 (2018-10-14)
+
+This version supports Swift 4.2 without introducing changes to the library workflow.
+Library source modifications include adopting new changes in the `RunLoopMode` enum introduced in Swift 4.2
+- Updated for Swift 4.2 and Xcode 10 #45 @asowers1
+
 ### 2.0.0 (2016-09-23)
 
 This is the Swift 3 update version.

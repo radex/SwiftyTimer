@@ -17,7 +17,7 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   
-  - xcodebuild -project "$PROJECT" -scheme 'SwiftyTimer' -destination 'name=iPhone 6,OS=10.0' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme 'SwiftyTimer' -destination 'name=iPhone 8,OS=12.4' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty
   - xcodebuild -project "$PROJECT" -scheme 'SwiftyTimer tvOS' -sdk appletvsimulator12.0 -destination 'name=Apple TV' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty
   - xcodebuild -project "$PROJECT" -scheme 'SwiftyTimer watchOS' -sdk iphonesimulator -destination 'name=Apple Watch - 42mm' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty
   - xcodebuild -project "$PROJECT" -scheme 'SwiftyTimer OS X' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty

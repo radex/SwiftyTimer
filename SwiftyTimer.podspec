@@ -7,7 +7,6 @@ Pod::Spec.new do |s|
   s.authors = { 'Radek Pietruszewski' => 'this.is@radex.io' }
   s.source = { git: 'https://github.com/radex/SwiftyTimer.git', tag: s.version }
 
-  s.swift_version = '5.0'
   s.requires_arc = true
   s.swift_versions = ['4.2', '5.0']
 

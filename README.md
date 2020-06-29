@@ -108,6 +108,13 @@ Just add to your Cartfile:
 github "radex/SwiftyTimer"
 ```
 
+#### Swift Package Manager
+- iOS: Open Xcode, File->Swift Packages, search input **https://github.com/radex/SwiftyTimer.git**, and then select Version Up to Next Major **2.1.1** < .
+- Or add dependencies in your `Package.swift`:
+```ruby
+.package(url: "https://github.com/radex/SwiftyTimer.git", .upToNextMajor(from: "2.1.1")),
+```
+
 #### Manually
 
 Simply copy `Sources/SwiftyTimer.swift` to your Xcode project.
